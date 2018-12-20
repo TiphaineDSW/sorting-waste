@@ -1,10 +1,17 @@
 <template>
-  <draggable v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false" id="prout">
+  <draggable v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false" id="listItem">
     <div class="colonne" v-for="element in myArray" :key="element.id">{{element.name}}</div>
-    <div class="div2" style="height: 100px"></div>
-    <div class="div3" style="height: 100px"></div>
-  </draggable>
-</template>
+   <template>
+     <draggable v-model="mySecondArray" :options="{group:'people'}" @start="drag=true" @end="drag=true" id="compost">
+     <div class="colonne" v-for="element in mySecondArray" :key="element.id">{{element.name}}</div>
+     </draggable>
+   </template>
+ </draggable> 
+</template>  
+
+
+
+
 
 <script lang="ts">
 import Vue from 'vue'
@@ -22,35 +29,44 @@ export default Vue.extend({
         {id: 3, name: "coquilles d'oeufs"},
         {id: 4, name: 'boîtes de conserve'},
         {id: 5, name: 'marc de café'}
+      ],
+      mySecondArray: [
+           {id: 6, name: 'compost'},
+        // {id: 7, name: 'carotte'},
+        // {id: 8, name: "yaourt"},
+        // {id: 9, name: 'carton'},
+        // {id: 10, name: 'pommes'}
       ]
     }
+
+  },
+  methods:{
+    
   }
 })
 </script>
 
 
+
+
 <style>
-  .juma {
-    background-color: aqua;
-  }
+  
   h2 {
     color: white;
   }
-  #prout {
+  #listItem {
     background-color: darkturquoise;
   }
   #prout.drop_hover {
     box-shadow: 0 0 30px rgba(0,0,0,0.8) inset;
   }
   .colonne {
-    color: yellow;
+    color: black;
   }
-  .div2 {
-    background-color: red;
+  #compost{
+    background-color: maroon;
   }
-  .div3 {
-    background-color: orange;
-  }
+
 </style>
 
 <!--// npm run serve -->
