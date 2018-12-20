@@ -6,6 +6,11 @@
      <div class="colonne" v-for="element in mySecondArray" :key="element.id">{{element.name}}</div>
      </draggable>
    </template>
+   <template>
+     <draggable v-model="myThirdArray" :options="{group:'people'}" @start="drag=true" @end="drag=true" id="compost">
+     <div class="colonne" v-for="element in mySecondArray" :key="element.id">{{element.name}}</div>
+     </draggable>
+   </template>
  </draggable> 
 </template>  
 
